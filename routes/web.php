@@ -30,6 +30,8 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+// admin routes for category
+
 Route::get('admin/dashboard' ,[HomeController::class,'index'])->middleware('auth','admin');
 Route::get('admin/view_category' ,[AdminController::class,'viewCategory'])->middleware('auth','admin');
 Route::post('admin/save_category' ,[AdminController::class,'addCategory'])->middleware('auth','admin');
@@ -37,3 +39,8 @@ Route::get('admin/manage_category' ,[AdminController::class,'allCategory'])->mid
 Route::get('admin/delete_category/{id}' ,[AdminController::class,'deleteCategory'])->middleware('auth','admin');
 Route::get('admin/edite_category/{id}' ,[AdminController::class,'editeCategory'])->middleware('auth','admin');
 Route::post('admin/update_category/{id}' ,[AdminController::class,'updateCategory'])->middleware('auth','admin');
+
+
+// admin routes for product
+Route::get('admin/add_product' ,[AdminController::class,'addProduct'])->middleware('auth','admin');
+Route::post('admin/save_product' ,[AdminController::class,'saveProduct'])->middleware('auth','admin');

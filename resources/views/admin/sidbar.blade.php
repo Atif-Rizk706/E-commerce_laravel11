@@ -13,9 +13,9 @@
         <li><a href="{{url('admin/view_category')}}"> <i class="icon-grid"></i>Add Category </a></li>
         <li><a href="{{url('admin/manage_category')}}"> <i class="icon-grid"></i>Manage Category </a></li>
 
-        <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Example dropdown </a>
+        <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Product </a>
             <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                <li><a href="#">Page</a></li>
+                <li><a href="{{url('admin/add_product')}}">Add product</a></li>
                 <li><a href="#">Page</a></li>
                 <li><a href="#">Page</a></li>
             </ul>
