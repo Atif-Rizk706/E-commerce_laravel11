@@ -33,3 +33,7 @@ require __DIR__.'/auth.php';
 Route::get('admin/dashboard' ,[HomeController::class,'index'])->middleware('auth','admin');
 Route::get('admin/view_category' ,[AdminController::class,'viewCategory'])->middleware('auth','admin');
 Route::post('admin/save_category' ,[AdminController::class,'addCategory'])->middleware('auth','admin');
+Route::get('admin/manage_category' ,[AdminController::class,'allCategory'])->middleware('auth','admin');
+Route::get('admin/delete_category/{id}' ,[AdminController::class,'deleteCategory'])->middleware('auth','admin');
+Route::get('admin/edite_category/{id}' ,[AdminController::class,'editeCategory'])->middleware('auth','admin');
+Route::post('admin/update_category/{id}' ,[AdminController::class,'updateCategory'])->middleware('auth','admin');
