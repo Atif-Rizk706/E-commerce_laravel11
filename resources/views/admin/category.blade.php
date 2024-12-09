@@ -13,11 +13,18 @@
     <div class="page-content">
         <div class="page-header">
             <div class="container-fluid">
-                <h2 class="h5 no-margin-bottom">Dashboard</h2>
+                <h1 class="h5 no-margin-bottom">Add Category</h1>
             </div>
         </div>
-        <!-- Page content-->
-        @include('admin.body')
+        <div class="container"  style="margin-left: 200px; align-content: center">
+            <form action="{{url('admin/save_category')}}" method="post">
+                @csrf
+                <div class="align-content-md-center" >
+                    <input type="text" name="category" style="width: 400px ; height:60px" >
+                    <input type="submit" class="btn-primary" value="Add Category">
+                </div>
+            </form>
+        </div>
 
         <footer class="footer">
             <div class="footer__block block no-margin-bottom">
@@ -31,6 +38,6 @@
 
 </div>
 <!-- JavaScript files-->
-@include('admin.script ')
+@include('admin.script')
 </body>
 </html>
