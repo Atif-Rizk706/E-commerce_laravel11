@@ -88,7 +88,7 @@
                         <td>{{ $product->quantity }}</td>
                         <td>
                             <!-- Edit and Delete buttons (You can link these to actual actions later) -->
-                            <a href="">Edit</a>
+                            <a href="{{url('admin/edite_product',$product->id)}}">Edit</a>
 
                             <a class="btn btn-danger" onclick="confirmation(event)" href="{{url('admin/delete_product',$product->id)}}"> Delete</a>
 

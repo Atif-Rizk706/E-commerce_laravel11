@@ -87,6 +87,27 @@ class AdminController extends Controller
         return redirect()->back();
 
 
+    }
+    public function editeProduct($id){
+        $categories=Category::all();
+        $product=Product::find($id);
+        return view('admin.edite_product',compact('product','categories'));
+    }
+    public function updateProduct(Request $request,$id){
 
+        $product=Product::find($id);
+        $product->title=$request->title;
+        $product->description=$request->description;
+        $product->price=$request->price;
+        $product->category=$request->category;
+        $product->quantity=$request->quantity;
+        if ($request->hasFile('image')) {
+            // Store the image in the 'public/products' folder and get the path
+            $imagePath = $request->file('image')->store('products', 'public');
+        }
+        $product->image=$imagePath;
+        $product->save();
+        toastr()->timeOut(1000)->closeButton()->addSuccess('Product Updated Successfully');
+        return redirect()->back();
     }
 }
