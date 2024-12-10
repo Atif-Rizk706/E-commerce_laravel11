@@ -23,9 +23,12 @@
 
                 <!-- Log out               -->
                 <div class="list-inline-item logout">
-                    <a id="logout" href="login.html" class="nav-link">
-                        Logout
-                        <i class="icon-logout"></i></a>
+                    <form method="post" action="{{route('logout')}}">
+                        @csrf
+                        <input type="submit" value="Logout">
+                        <i class="icon-logout"></i>
+                    </form>
+
                 </div>
             </div>
         </div>
