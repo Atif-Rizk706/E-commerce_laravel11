@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -71,5 +72,21 @@ class AdminController extends Controller
         toastr()->timeOut(1000)->closeButton()->addSuccess('Product saved Successfully');
 
         return redirect()->back();
+    }
+    public function showProduct(){
+        $products=Product::paginate(4);
+        return view('admin.show_products',compact('products'));
+    }
+    public function deleteProduct($id){
+        $product=Product::find($id);
+        $product->delete();
+        if ($product->image) {
+            Storage::delete('public/' . $product->image); // Assuming image is stored in the public disk
+        }
+        toastr()->timeOut(1000)->closeButton()->addSuccess('Product deleted Successfully');
+        return redirect()->back();
+
+
+
     }
 }

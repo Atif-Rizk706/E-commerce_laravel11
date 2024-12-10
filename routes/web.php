@@ -44,3 +44,6 @@ Route::post('admin/update_category/{id}' ,[AdminController::class,'updateCategor
 // admin routes for product
 Route::get('admin/add_product' ,[AdminController::class,'addProduct'])->middleware('auth','admin');
 Route::post('admin/save_product' ,[AdminController::class,'saveProduct'])->middleware('auth','admin');
+Route::get('admin/show_product' ,[AdminController::class,'showProduct'])->middleware('auth','admin');
+Route::get('admin/delete_product/{id}' ,[AdminController::class,'deleteProduct'])->middleware('auth','admin');
+Route::get('admin/del_product/{id}',[AdminController::class,'deleteProduct'])->middleware('auth','admin');

@@ -16,8 +16,7 @@
         <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Product </a>
             <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                 <li><a href="{{url('admin/add_product')}}">Add product</a></li>
-                <li><a href="#">Page</a></li>
-                <li><a href="#">Page</a></li>
+                <li><a href="{{url('admin/show_product')}}">Show Products</a></li>
             </ul>
         </li>
     </ul>
