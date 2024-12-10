@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use function Laravel\Prompts\search;
 
 class AdminController extends Controller
 {
@@ -109,5 +110,10 @@ class AdminController extends Controller
         $product->save();
         toastr()->timeOut(1000)->closeButton()->addSuccess('Product Updated Successfully');
         return redirect()->back();
+    }
+    public function searchProduct(Request $request){
+        $search=$request->search;
+        $products=Product::where('title','LIKE','%'.$search.'%')->orWhere('category','LIKE','%'.$search.'%')->paginate(3);;
+        return view('admin.show_products',compact('products'));
     }
 }

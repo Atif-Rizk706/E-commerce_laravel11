@@ -58,6 +58,13 @@
                 <h1 class="h5 no-margin-bottom">All Products</h1>
             </div>
         </div>
+        <div style="margin-left: 60px">
+            <form method="get" action="{{url('admin/search_product')}}">
+                @csrf
+                <input type="search" name="search" style="height: 50px;width: 300px">
+                <input type="submit" value="search" class="btn btn-secondary">
+            </form>
+        </div>
         <div class="container"  style="margin-left: 200px; align-content: center ;width: 76%">
             <table class="product-table">
                 <thead>

@@ -48,3 +48,4 @@ Route::get('admin/show_product' ,[AdminController::class,'showProduct'])->middle
 Route::get('admin/delete_product/{id}' ,[AdminController::class,'deleteProduct'])->middleware('auth','admin');
 Route::get('admin/edite_product/{id}',[AdminController::class,'editeProduct'])->middleware('auth','admin');
 Route::post('admin/update_product/{id}',[AdminController::class,'updateProduct'])->middleware('auth','admin');
+Route::get('admin/search_product',[AdminController::class,'searchProduct'])->middleware('auth','admin');
