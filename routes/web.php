@@ -21,8 +21,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class,'home']);
 Route::get('/product_details/{id}',[HomeController::class,'productDetails']);
-
-Route::get('/dashboard',[HomeController::class,'home'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard',[HomeController::class,'login_in'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/add_card/{id}',[HomeController::class,'addCard'])->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

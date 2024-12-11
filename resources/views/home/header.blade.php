@@ -39,6 +39,7 @@
                     @auth
                         <a href="">
                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                            [{{$count}}]
                         </a>
                         <form class="form-inline ">
                             <button class="btn nav_search-btn" type="submit">
