@@ -44,4 +44,12 @@ class HomeController extends Controller
         return redirect()->back();
 
    }
+   public function showCard(){
+       $user_id=Auth::id();
+       $count=Cart::where('user_id',$user_id)->count();
+       $cart=Cart::where('user_id',$user_id)->get();
+
+       return view('home.mycard',compact('count','cart'));
+
+   }
 }

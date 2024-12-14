@@ -12,4 +12,10 @@ class Cart extends Model
         'user_id',
         'product_id',
     ];
+    public function user() {
+        return $this->hasOne(User::class,'id','user_id');
+    }
+    public function products() {
+        return $this->hasOne(Product::class,'id','product_id');
+    }
 }

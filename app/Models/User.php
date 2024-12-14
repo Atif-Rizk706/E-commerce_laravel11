@@ -24,6 +24,10 @@ class User extends Authenticatable
         'phone',
         'password',
     ];
+    // relationship betwwen user and cars
+    public function carts() {
+        return $this->belongsTo(Cart::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
