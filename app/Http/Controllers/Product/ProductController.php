@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
+use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -13,6 +14,7 @@ use function Laravel\Prompts\search;
 
 class ProductController extends Controller
 {
+    use ImageUploadTrait;
     public function productDetails($id){
         $product=Product::find($id);
         $user_id=Auth::id();
@@ -33,10 +35,10 @@ class ProductController extends Controller
             'category' => 'required|string',
             'quantity' => 'required|integer|min:1',
         ]);
-        if ($request->hasFile('image')) {
-            // Store the image in the 'public/products' folder and get the path
-            $imagePath = $request->file('image')->store('products', 'public');
-        }
+
+        $imagePath = $this->saveImage($request,$folder='products'); // Use the trait method
+
+
         $product = Product::create([
             'title' => $validatedData['title'],
             'description' => $validatedData['description'],
@@ -77,10 +79,8 @@ class ProductController extends Controller
         $product->price=$request->price;
         $product->category=$request->category;
         $product->quantity=$request->quantity;
-        if ($request->hasFile('image')) {
-            // Store the image in the 'public/products' folder and get the path
-            $imagePath = $request->file('image')->store('products', 'public');
-        }
+
+        $imagePath = $this->saveImage($request,$folder='products'); // Use the trait method
         $product->image=$imagePath;
         $product->save();
         toastr()->timeOut(1000)->closeButton()->addSuccess('Product Updated Successfully');

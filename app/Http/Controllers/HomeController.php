@@ -15,7 +15,6 @@ class HomeController extends Controller
     }
     public function home(){
         $products=Product::all();
-        $products=Product::all();
         $user_id=Auth::id();
         $count=Cart::where('user_id',$user_id)->count();
         return view('home.index',compact('products','count'));
