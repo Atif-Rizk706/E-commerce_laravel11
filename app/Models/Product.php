@@ -16,7 +16,8 @@ class Product extends Model
         'quantity',
         'image',
     ];
-    public function carts() {
-        return $this->hasMany(Cart::class);
+    public function carts()
+    {
+        return $this->hasMany(Cart::class, 'product_id', 'id');
     }
 }

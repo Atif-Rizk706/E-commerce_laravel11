@@ -17,9 +17,10 @@
             </div>
         </div>
         <div class="container"  style="margin-left: 200px; align-content: center">
-            <form action="{{url('admin/update_category',$category->id)}}" method="post">
+            <form action="{{route('admin.update_category',$category->id)}}" method="post">
                 @csrf
                 <div class="align-content-md-center" >
+                    <label> Updated Category name</label>
                     <input type="text" name="category" style="width: 400px ; height:60px" value="{{$category->category_name}}" >
                     <input type="submit" class="btn-primary" value="Edite Category">
                 </div>

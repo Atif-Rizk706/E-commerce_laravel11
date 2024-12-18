@@ -28,10 +28,10 @@
                 <tr>
                     <td style="border: solid 1px;">{{$category->category_name}}</td>
                     <td style="border: solid 1px;">
-                        <a class="btn btn-danger" onclick="confirmation(event)" href="{{url('admin/delete_category',$category->id)}}"> Delete</a>
+                        <a class="btn btn-danger" onclick="confirmation(event)" href="{{ route('admin.delete_category', $category->id) }}"> Delete</a>
                     </td>
                     <td style="border: solid 1px;">
-                        <a class="btn btn-success"  href="{{url('admin/edite_category',$category->id)}}"> Update</a>
+                        <a class="btn btn-success" href="{{ route('admin.edite_category', $category->id) }}"> Update</a>
                     </td>
 
                 </tr>

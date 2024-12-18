@@ -85,7 +85,7 @@
             </div>
         </div>
         <div class="container"  style="margin-left: 200px; align-content: center ;width: 70%">
-            <form action="{{url('admin/update_product',$product->id)}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('admin.update_product',$product->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="title">Title:</label>

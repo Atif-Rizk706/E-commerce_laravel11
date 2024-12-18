@@ -59,7 +59,7 @@
             </div>
         </div>
         <div style="margin-left: 60px">
-            <form method="get" action="{{url('admin/search_product')}}">
+            <form method="get" action="{{route('admin.search_product')}}">
                 @csrf
                 <input type="search" name="search" style="height: 50px;width: 300px">
                 <input type="submit" value="search" class="btn btn-secondary">
@@ -95,9 +95,9 @@
                         <td>{{ $product->quantity }}</td>
                         <td>
                             <!-- Edit and Delete buttons (You can link these to actual actions later) -->
-                            <a href="{{url('admin/edite_product',$product->id)}}">Edit</a>
+                            <a href="{{route('admin.edite_product',$product->id)}}">Edit</a>
 
-                            <a class="btn btn-danger" onclick="confirmation(event)" href="{{url('admin/delete_product',$product->id)}}"> Delete</a>
+                            <a class="btn btn-danger" onclick="confirmation(event)" href="{{route('admin.delete_product',$product->id)}}"> Delete</a>
 
 
                         </td>

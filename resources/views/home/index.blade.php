@@ -2,30 +2,25 @@
 <html>
 
 <head>
-   @include('home.css')
+    @include('home.css')
 </head>
 
 <body>
 <div class="hero_area">
     <!-- header section strats -->
-      @include('home.header')
+    @include('home.header')
     <!-- end header section -->
     <!-- slider section -->
 
-       @include('home.sidebar')
+    @include('home.sidebar')
     <!-- end slider section -->
 </div>
 <!-- end hero area -->
 
 <!-- shop section -->
 
-@include('home.product')
+@include('home.product.product')
 <!-- end shop section -->
-
-
-
-
-
 
 
 <!-- contact section -->
@@ -34,7 +29,6 @@
 <br><br><br>
 
 <!-- end contact section -->
-
 
 
 <!-- info section -->
