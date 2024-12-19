@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
 use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
@@ -24,28 +25,18 @@ class ProductController extends Controller
     }
     public function addProduct(){
         $categories=Category::all();
-        return view('admin.add_product',compact('categories'));
+        return view('admin.Product.add_product',compact('categories'));
     }
-    public function saveProduct(Request $request){
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'price' => 'required|numeric',
-            'category' => 'required|string',
-            'quantity' => 'required|integer|min:1',
-        ]);
+    public function saveProduct(ProductRequest $request){
 
         $imagePath = $this->saveImage($request,$folder='products'); // Use the trait method
-
-
         $product = Product::create([
-            'title' => $validatedData['title'],
-            'description' => $validatedData['description'],
+            'title' => $request->validated()['title'],  // Access validated data
+            'description' => $request->validated()['description'],
             'image' => $imagePath ?? null,  // Store the image path if available
-            'price' => $validatedData['price'],
-            'category' => $validatedData['category'],
-            'quantity' => $validatedData['quantity'],
+            'price' => $request->validated()['price'],
+            'category' => $request->validated()['category'],
+            'quantity' => $request->validated()['quantity'],
         ]);
         toastr()->timeOut(1000)->closeButton()->addSuccess('Product saved Successfully');
 

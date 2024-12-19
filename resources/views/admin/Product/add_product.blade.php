@@ -8,6 +8,10 @@
         .form-group {
             margin-bottom: 20px;
         }
+        .form-group div{
+            width: 80%;
+            margin-top: 10px;
+        }
 
         /* Label Styling */
         label {
@@ -89,37 +93,55 @@
                 @csrf
                 <div class="form-group">
                     <label for="title">Title:</label>
-                    <input type="text" id="title" name="title" required>
+                    <input type="text" id="title" name="title" >
+                    @error('title') <!-- Display error message for 'title' -->
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="description">Description:</label>
-                    <textarea id="description" name="description" rows="4" required></textarea>
+                    <textarea id="description" name="description" rows="4" ></textarea>
+                    @error('description') <!-- Display error message for 'description' -->
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="image">Image:</label>
-                    <input type="file" id="image" name="image" accept="image/*" required>
+                    <input type="file" id="image" name="image" accept="image/*" >
+                    @error('title') <!-- Display error message for 'title' -->
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="price">Price ($):</label>
-                    <input type="number" id="price" name="price" step="0.01" required>
+                    <input type="number" id="price" name="price" step="0.01" >
+                    @error('price') <!-- Display error message for 'price' -->
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="category">Category:</label>
-                    <select id="category" name="category" required>
+                    <select id="category" name="category" >
                         <option value="">Select a category</option>
                         @foreach($categories as $category)
                         <option value="{{$category->category_name}}">{{$category->category_name}}</option>
                         @endforeach
                     </select>
+                    @error('category') <!-- Display error message for 'category' -->
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="quantity">Quantity:</label>
-                    <input type="number" id="quantity" name="quantity" min="1" required>
+                    <input type="number" id="quantity" name="quantity" min="1" >
+                    @error('quantity') <!-- Display error message for 'quantity' -->
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <button type="submit">Add Product</button>
