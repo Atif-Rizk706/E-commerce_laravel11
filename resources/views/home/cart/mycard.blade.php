@@ -66,14 +66,23 @@ $totalPrice=0;
             <div>
                 <label>Recever name</label>
                 <input type="text" name="name" value="{{Auth::user()->name}}">
+                @error('name') <!-- Display error message for 'title' -->
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div>
                 <label>Recever address</label>
                 <input type="text" name="address" value="{{Auth::user()->address}}">
+                @error('address') <!-- Display error message for 'title' -->
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div>
                 <label>Recever phone</label>
                 <input type="text" name="phone" value="{{Auth::user()->phone}}">
+                @error('phone') <!-- Display error message for 'title' -->
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div>
                 <input type="submit" class="btn btn-primary" value="Place Order">

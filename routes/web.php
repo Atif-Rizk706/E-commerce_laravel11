@@ -22,17 +22,25 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 */
 
 
-// site routes
-// Public routes (no authentication required)
-Route::get('/', [HomeController::class, 'home'])->name('home');
-Route::get('/product_details/{id}', [ProductController::class, 'productDetails'])->name('product_details');
 
-Route::group(['middleware' => ['auth', 'verified']], function() {
+
+Route::group([] , function() {
+    // Add this route explicitly for /en or any default language
+    Route::get('/', [HomeController::class, 'home'])->name('home'); // Homepage for the language prefix
+    Route::get('/product_details/{id}', [ProductController::class, 'productDetails'])->name('product_details');
+});
+
+
+// Routes requiring authentication
+Route::group(['middleware' => ['auth', 'verified',]
+], function() {
     Route::get('/dashboard', [HomeController::class, 'login_in'])->name('dashboard');
     Route::get('/add_card/{id}', [CartController::class, 'addCard'])->name('add_card');
     Route::get('/show_card', [CartController::class, 'showCard'])->name('show_card');
     Route::post('/add_order', [OrderController::class, 'addOrder'])->name('add_order');
 });
+
+
 
 
 

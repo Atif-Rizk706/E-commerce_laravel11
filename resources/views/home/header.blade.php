@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  ">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{route('home')}}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="shop.html">
@@ -37,7 +37,7 @@
                 @if(Route::has('login'))
 
                     @auth
-                        <a href="{{url('show_card')}}">
+                        <a href="{{route('show_card')}}">
                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                             [{{$count}}]
                         </a>
@@ -54,13 +54,13 @@
                     @else
 
 
-                <a href="{{url('/login')}}">
+                <a href="{{route('login')}}">
                     <i class="fa fa-user" aria-hidden="true"></i>
                     <span>
                 Login
               </span>
                 </a>
-                <a href="{{url('/register')}}">
+                <a href="{{route('register')}}">
                     <i class="fa fa-vcard" aria-hidden="true"></i>
                     <span>
                 Register
@@ -68,9 +68,6 @@
                 </a>
                     @endauth
                 @endif
-
-
-
             </div>
 
         </div>

@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -31,8 +32,12 @@ class AuthenticatedSessionController extends Controller
         if($request->user()->usertype ==='admin'){
            return redirect('admin/dashboard');
         }
+        // Get the current locale
+        //$locale = LaravelLocalization::getCurrentLocale();
+        return redirect(RouteServiceProvider::HOME);
+        // Redirect to the dashboard with the locale prefix
+       // return redirect()->intended(LaravelLocalization::getLocalizedURL($locale, '/dashboard'));
 
-        return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**

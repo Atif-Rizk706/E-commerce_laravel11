@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Order;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\OrderRequest;
 use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Order;
@@ -14,7 +15,7 @@ use function Laravel\Prompts\search;
 
 class OrderController extends Controller
 {
-    public function addOrder(Request $request){
+    public function addOrder(OrderRequest $request){
         $user_id=Auth::id();
         $cart=Cart::where('user_id',$user_id)->get();
         foreach ($cart as $carts){
