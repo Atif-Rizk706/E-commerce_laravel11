@@ -12,6 +12,7 @@
         <li class="active"><a href="{{route('admin.dashboard')}}"> <i class="icon-home"></i>Home </a></li>
         <li><a href="{{route('admin.view_category')}}"> <i class="icon-grid"></i>Add Category </a></li>
         <li><a href="{{route('admin.manage_category')}}"> <i class="icon-grid"></i>Manage Category </a></li>
+        <li><a href="{{route('admin.all_orders')}}"> <i class="icon-grid"></i>All orders </a></li>
 
         <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Product </a>
             <ul id="exampledropdownDropdown" class="collapse list-unstyled ">

@@ -66,6 +66,11 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('edite_product/{id}', [ProductController::class, 'editeProduct'])->name('admin.edite_product');
     Route::post('update_product/{id}', [ProductController::class, 'updateProduct'])->name('admin.update_product');
     Route::get('search_product', [ProductController::class, 'searchProduct'])->name('admin.search_product');
+    // admin rute for orders
+    Route::get('all_orders', [OrderController::class, 'orderShow'])->name('admin.all_orders');
+    Route::get('change_status1/{id}', [OrderController::class, 'onWay'])->name('admin.onWayStatus');
+    Route::get('change_status2/{id}', [OrderController::class, 'delivered'])->name('admin.deliveredStatus');
+
 });
 
 
