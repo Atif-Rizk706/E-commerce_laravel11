@@ -5,9 +5,8 @@
     <style>
         .product-table {
             width: 80%;
-            border-collapse: collapse;
             margin-top: 20px;
-            border: 1px solid #ddd;
+            border: 1px solid #252424;
         }
 
         .product-table th, .product-table td {
@@ -31,12 +30,7 @@
 
         }
 
-        button {
-            color: white;
-            border: none;
-            cursor: pointer;
-            display: inline;
-        }
+
 
         button:hover {
             background-color: darkred;
@@ -56,7 +50,7 @@
                 <h1 class="h5 no-margin-bottom">All Orders</h1>
             </div>
         </div>
-        <div class="container"  style="margin-left: 200px; align-content: center ;width: 76%">
+        <div class="container"  style="margin-left: 100px; align-content: center ;width: 76%">
             <table class="product-table">
                 <thead>
                 <tr>
@@ -68,6 +62,8 @@
                     <th>Image</th>
                     <th>Status</th>
                     <th>Change Status</th>
+                    <th>Print invoice</th>
+
 
                 </tr>
                 </thead>
@@ -88,12 +84,16 @@
                             @endif
                         </td>
                         <td>{{$order->status }}</td>
-                        <td style="display: flex ">
+                        <td style="display:flex">
 
                             <a  style="padding: 5px" class="btn btn-secondary" href="{{route('admin.onWayStatus',$order->id)}}">On the way</a>
                             <a style="padding: 5px" class="btn btn-success" href="{{route('admin.deliveredStatus',$order->id)}}">Delivered</a>
 
                         </td>
+                        <td>
+                            <a style="padding: 5px" class="btn btn-success" href="{{route('admin.invoice_pdf',$order->id)}}">Print Pdf</a>
+                        </td>
+
 
                     </tr>
                 @endforeach

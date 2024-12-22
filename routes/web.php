@@ -70,6 +70,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('all_orders', [OrderController::class, 'orderShow'])->name('admin.all_orders');
     Route::get('change_status1/{id}', [OrderController::class, 'onWay'])->name('admin.onWayStatus');
     Route::get('change_status2/{id}', [OrderController::class, 'delivered'])->name('admin.deliveredStatus');
+    Route::get('printInvoice/{id}', [OrderController::class, 'printPdf'])->name('admin.invoice_pdf');
 
 });
 

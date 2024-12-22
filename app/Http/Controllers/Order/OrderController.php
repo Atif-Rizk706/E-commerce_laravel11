@@ -8,6 +8,7 @@ use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -54,5 +55,11 @@ class OrderController extends Controller
         $order->status='delivered';
         $order->save();
         return redirect()->back();
+    }
+    public function printPdf($id){
+        $order=Order::find($id);
+        $pdf = Pdf::loadView('admin.Orders.invoice',compact('order'));
+        return $pdf->download('invoice.pdf');
+
     }
 }
